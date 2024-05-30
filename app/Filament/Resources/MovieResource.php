@@ -49,7 +49,7 @@ class MovieResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('poster'),
+                ImageColumn::make('poster')->disk('s3'),
                 TextColumn::make('title')->searchable(),
                 TextColumn::make('year')->sortable(),
                 TextColumn::make('country'),

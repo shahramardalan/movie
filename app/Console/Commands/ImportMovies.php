@@ -41,7 +41,7 @@ class ImportMovies extends Command
         for ($i = $currentPage; $i <= $maxPage; $i++) {
             $this->warn("Current page is : " . $i);
 
-            $response = Http::get('https://mocki.io/v1/d5da28bc-3949-4045-83e0-cb08a767744a?page=' . $i);
+            $response = Http::get('https://moviesapi.ir/api/v1/movies?page=' . $i);
 
             $items = $response->json();
 
@@ -100,7 +100,7 @@ class ImportMovies extends Command
 
         $path = Str::slug($title) . '/' . $name . '.jpg';
 
-        Storage::put('public/' . $path, $image);
+        Storage::put($path, $image);
 
         return $path;
     }
